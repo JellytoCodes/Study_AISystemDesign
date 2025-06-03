@@ -22,8 +22,7 @@ EBTNodeResult::Type UBTTask_FindPlayerLocation::ExecuteTask(UBehaviorTreeCompone
 		{
 			FNavLocation loc;
 
-
-			// get the navigation system cand generate a random location near the player
+			// get the navigation system sand generate a random location near the player
 			if(auto* const navSys = UNavigationSystemV1::GetCurrent(GetWorld()))
 			{
 				if(navSys->GetRandomPointInNavigableRadius(playerLocation, searchRadius, loc))

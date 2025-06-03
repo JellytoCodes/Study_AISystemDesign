@@ -6,7 +6,6 @@
 #include "BehaviorTree/Tasks/BTTask_BlackboardBase.h"
 #include "BTTask_FindPlayerLocation.generated.h"
 
-
 UCLASS()
 class AISYSTEMDESIGN_API UBTTask_FindPlayerLocation : public UBTTask_BlackboardBase
 {
