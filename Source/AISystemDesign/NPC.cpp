@@ -2,6 +2,7 @@
 
 
 #include "NPC.h"
+#include "BehaviorTree/BehaviorTree.h"
 
 // Sets default values
 ANPC::ANPC()
@@ -30,5 +31,10 @@ void ANPC::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+UBehaviorTree *ANPC::GetBehaviorTree() const
+{
+	return Tree;
 }
 

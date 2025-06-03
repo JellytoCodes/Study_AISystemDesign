@@ -13,5 +13,18 @@ UCLASS()
 class AISYSTEMDESIGN_API ANPCAIController : public AAIController
 {
 	GENERATED_BODY()
-	
+
+public :
+	explicit ANPCAIController(FObjectInitializer const& ObjectInitializer);
+
+protected :
+	virtual void OnPossess(APawn* inPawn) override;
+
+private :
+	class UAISenseConfig_Sight* sightConfig;
+
+	void SetupPerceptionSystem();
+
+	UFUNCTION()
+	void OnTargetDetected(AActor* Actor, FAIStimulus const Stimulus);
 };

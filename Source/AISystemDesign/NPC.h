@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "NPC.generated.h"
 
+class UBehaviorTree;
+
 UCLASS()
 class AISYSTEMDESIGN_API ANPC : public ACharacter
 {
@@ -16,7 +18,12 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UBehaviorTree* GetBehaviorTree() const;
+
 protected:
 	virtual void BeginPlay() override;
 
+private :
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="AI", meta = (AllowPrivateAccess = "true"))
+	UBehaviorTree* Tree;
 };
