@@ -7,6 +7,7 @@
 #include "NPC.generated.h"
 
 class UBehaviorTree;
+class APatrolPath;
 
 UCLASS()
 class AISYSTEMDESIGN_API ANPC : public ACharacter
@@ -20,10 +21,15 @@ public:
 
 	UBehaviorTree* GetBehaviorTree() const;
 
+	APatrolPath* GetPatrolPath() const;
+
 protected:
 	virtual void BeginPlay() override;
 
 private :
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="AI", meta = (AllowPrivateAccess = "true"))
 	UBehaviorTree* Tree;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="AI", meta = (AllowPrivateAccess = "true"))
+	APatrolPath* PatrolPath;
 };

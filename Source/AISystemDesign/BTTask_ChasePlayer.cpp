@@ -8,6 +8,7 @@
 #include "NPCAIController.h"
 
 UBTTask_ChasePlayer::UBTTask_ChasePlayer(FObjectInitializer const& ObjectInitializer)
+:UBTTask_BlackboardBase{ObjectInitializer}
 {
 	NodeName = TEXT("Chase Player");
 }
