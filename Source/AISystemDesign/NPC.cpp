@@ -3,6 +3,7 @@
 
 #include "NPC.h"
 #include "BehaviorTree/BehaviorTree.h"
+#include "Animation/AnimMontage.h"
 #include "PatrolPath.h"
 
 // Sets default values
@@ -42,5 +43,19 @@ UBehaviorTree *ANPC::GetBehaviorTree() const
 APatrolPath *ANPC::GetPatrolPath() const
 {
 	return PatrolPath;
+}
+
+UAnimMontage *ANPC::GetMontage() const
+{
+	return Montage;
+}
+
+int ANPC::MeleeAttack_Implementation()
+{
+	if(Montage)
+	{
+		PlayAnimMontage(Montage);
+	}
+	return 0;
 }
 
