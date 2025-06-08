@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Character.h"
+#include "CPPAICharacterBase.h"
 #include "CombatInterface.h"
 #include "NPC.generated.h"
 
@@ -11,7 +11,7 @@ class UBehaviorTree;
 class APatrolPath;
 
 UCLASS()
-class AISYSTEMDESIGN_API ANPC : public ACharacter, public ICombatInterface
+class AISYSTEMDESIGN_API ANPC : public ACPPAICharacterBase, public ICombatInterface
 {
 	GENERATED_BODY()
 

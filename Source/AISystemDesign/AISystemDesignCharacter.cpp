@@ -9,6 +9,7 @@
 #include "GameFramework/Controller.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "Animation/AnimMontage.h"
 #include "InputActionValue.h"
 #include "Perception/AIPerceptionStimuliSourceComponent.h"
 #include "Perception//AISense_Sight.h"
@@ -90,6 +91,8 @@ void AAISystemDesignCharacter::SetupPlayerInputComponent(UInputComponent* Player
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AAISystemDesignCharacter::Look);
+
+		EnhancedInputComponent->BindAction(PunchAction, ETriggerEvent::Triggered, this, &AAISystemDesignCharacter::OnAttack);
 	}
 	else
 	{
@@ -130,6 +133,14 @@ void AAISystemDesignCharacter::Look(const FInputActionValue& Value)
 		// add yaw and pitch input to controller
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
+	}
+}
+
+void AAISystemDesignCharacter::OnAttack()
+{
+	if(AnimMontage)
+	{
+		PlayAnimMontage(AnimMontage);
 	}
 }
 

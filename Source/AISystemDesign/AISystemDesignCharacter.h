@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Character.h"
+#include "CPPAICharacterBase.h"
 #include "Logging/LogMacros.h"
 #include "AISystemDesignCharacter.generated.h"
 
@@ -16,7 +16,7 @@ struct FInputActionValue;
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
 UCLASS(config=Game)
-class AAISystemDesignCharacter : public ACharacter
+class AAISystemDesignCharacter : public ACPPAICharacterBase
 {
 	GENERATED_BODY()
 
@@ -44,29 +44,27 @@ class AAISystemDesignCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* PunchAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UAnimMontage* AnimMontage;
+
 	class UAIPerceptionStimuliSourceComponent* StimulusSource;
 
 	void SetupStimulusSource();
 
 public:
 	AAISystemDesignCharacter();
-	
 
-protected:
-
-	/** Called for movement input */
-	void Move(const FInputActionValue& Value);
-
-	/** Called for looking input */
-	void Look(const FInputActionValue& Value);
-			
-
-protected:
-	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-	
-	// To add mapping context
 	virtual void BeginPlay();
+
+protected:
+
+	void Move(const FInputActionValue& Value);
+	void Look(const FInputActionValue& Value);		
+	void OnAttack();
 
 public:
 	/** Returns CameraBoom subobject **/
