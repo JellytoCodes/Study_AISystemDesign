@@ -11,11 +11,15 @@ Unreal Engine 5.4.4 기반의 학습 프로젝트
 <br>
 
 ## ⚙️ 학습한 요소
-  ✅ Blackboard & BehaviorTree 구조와 흐름
-  ✅ BTTask, BTService C++ 설계 방법
-  ✅ BT, BB Buleprint 설계 방법
-  ✅ AIPerception 기반 감지 로직과 연계 (Sight 기반)
-  ✅ 플레이어 감지에 따른 행동 전이 구현 (PatrolPoint -> Chase Player -> Attack)
+  ✅ Blackboard & BehaviorTree 구조와 흐름  
+  
+  ✅ BTTask, BTService C++ 설계 방법  
+  
+  ✅ BT, BB Buleprint 설계 방법  
+  
+  ✅ AIPerception 기반 감지 로직과 연계 (Sight 기반)  
+  
+  ✅ 플레이어 감지에 따른 행동 전이 구현 (PatrolPoint -> Chase Player -> Attack)  
 
 <br>
 
